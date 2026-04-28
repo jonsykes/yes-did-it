@@ -1,0 +1,64 @@
+{
+  "name": "@yesdidit/mcp",
+  "version": "0.5.0",
+  "description": "Yes! Did It — MCP server for Claude Code todo management",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./handler": {
+      "types": "./dist/handler.d.ts",
+      "default": "./dist/handler.js"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "default": "./dist/server.js"
+    },
+    "./api-client": {
+      "types": "./dist/api-client.d.ts",
+      "default": "./dist/api-client.js"
+    },
+    "./widget-app-asset": {
+      "types": "./dist/widgets/widget-app-asset.d.ts",
+      "default": "./dist/widgets/widget-app-asset.js"
+    }
+  },
+  "files": [
+    "dist",
+    "skills",
+    "manifest.json"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc && node scripts/copy-widget-app.mjs",
+    "prepack": "pnpm build",
+    "dev": "echo 'MCP server is now served via the API package — use pnpm dev in packages/api'",
+    "preview": "tsx preview/server.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "^1.7.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "tsx": "^4",
+    "typescript": "^5",
+    "vitest": "^4.1.2"
+  },
+  "license": "MIT",
+  "author": "Yes! Did It",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonmccon/yes-did-it.git",
+    "directory": "packages/mcp"
+  },
+  "homepage": "https://yesdidit.com",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
