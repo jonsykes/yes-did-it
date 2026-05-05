@@ -1,0 +1,24 @@
+{
+  "name": "yesdidit",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "packageManager": "pnpm@10.32.1",
+  "scripts": {
+    "setup": "git config core.hooksPath .githooks",
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "test": "turbo test",
+    "lint": "turbo lint",
+    "test:db:start": "docker run -d --name ydi-test-db -e POSTGRES_PASSWORD=postgres -p 54322:5432 postgres:16-alpine && sleep 2 && cd packages/api && npx drizzle-kit push",
+    "test:db:stop": "docker rm -f ydi-test-db"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@yesdidit/cli": "^0.2.1",
+    "@yesdidit/mcp": "^0.2.1"
+  }
+}

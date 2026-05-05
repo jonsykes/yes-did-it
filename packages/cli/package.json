@@ -1,0 +1,60 @@
+{
+  "name": "@yesdidit/cli",
+  "version": "0.6.0",
+  "description": "Yes! Did It — CLI for terminal todo management",
+  "type": "commonjs",
+  "bin": {
+    "ydi": "./bin/run.js"
+  },
+  "oclif": {
+    "bin": "ydi",
+    "dirname": "yesdidit",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-warn-if-update-available"
+    ],
+    "topicSeparator": " ",
+    "additionalHelpFlags": [
+      "-h"
+    ]
+  },
+  "files": [
+    "dist",
+    "bin",
+    "oclif.manifest.json"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "dev": "tsx watch src/index.ts",
+    "prepack": "pnpm build && pnpm exec oclif manifest",
+    "pretest": "pnpm build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@oclif/core": "^3",
+    "@oclif/plugin-help": "^6",
+    "@oclif/plugin-warn-if-update-available": "^3.1.57",
+    "chrono-node": "^2",
+    "enquirer": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "oclif": "^4.22.93",
+    "postgres": "^3.4.8",
+    "tsx": "^4",
+    "typescript": "^5",
+    "vitest": "^2.1.9"
+  },
+  "license": "MIT",
+  "author": "Yes! Did It",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonmccon/yes-did-it.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://yesdidit.com",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
