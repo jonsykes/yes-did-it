@@ -1,0 +1,13 @@
+{
+  "manifest_version": "0.2",
+  "name": "yesdidit",
+  "description": "Todo management for Claude — add, list, complete, and delete todos with automatic git context capture",
+  "privacy_policy_urls": [
+    "https://yesdidit.com/privacy"
+  ],
+  "data_processing_agreement_urls": [
+    "https://yesdidit.com/dpa"
+  ],
+  "homepage": "https://yesdidit.com",
+  "repository": "https://github.com/jonsykes/yes-did-it"
+}
